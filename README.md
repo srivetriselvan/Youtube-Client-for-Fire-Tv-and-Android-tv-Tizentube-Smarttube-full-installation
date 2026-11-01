@@ -51,19 +51,55 @@ Repository:\
 6. Enable **ADB debugging**.
 7. Enable **Apps from Unknown Sources** or **Install from Unknown Sources**.
 
-### 2. Download the APK
+## Through ADB Command (Most Efficient)
+
+For installing apps directly through ADB without any apk downloading, you can use the commands below. 
+**before running the commands please visit this repo to connect the stick via adb to the computer**
+https://github.com/srivetriselvan/ADB-guide-for-Amazon-Fire-TV-Stick
+
+### Windows PowerShell
+
+#### SmartTube
+
+```powershell
+Invoke-WebRequest -Uri "https://github.com/yuliskov/SmartTube/releases/download/latest/smarttube_stable.apk" -OutFile "$env:TEMP\smarttube.apk"; adb install -r -g "$env:TEMP\smarttube.apk"
+```
+
+#### TizenTube
+
+```powershell
+Invoke-WebRequest -Uri "https://github.com/reisxd/TizenTubeCobalt/releases/download/v2.0.3/cobalt-arm.apk" -OutFile "$env:TEMP\tizentube.apk"; adb install -r -g "$env:TEMP\tizentube.apk"
+```
+
+### Linux (Bash)
+
+#### SmartTube
+
+```bash
+curl -L "https://github.com/yuliskov/SmartTube/releases/download/latest/smarttube_stable.apk" -o /tmp/smarttube.apk && adb install -r -g /tmp/smarttube.apk
+```
+
+#### TizenTube
+
+```bash
+curl -L "https://github.com/reisxd/TizenTubeCobalt/releases/download/v2.0.3/cobalt-arm.apk" -o /tmp/tizentube.apk && adb install -r -g /tmp/tizentube.apk
+```
+
+## Through APK
+
+### Download the APK
 
 Download the APK from the **Releases** section of this repository.
 
-### 3. Transfer the APK
+### Transfer the APK
 
 Transfer the APK to your Fire TV Stick using one of the following methods:
 
-#### Send Files to TV
+### Send Files to TV
 
 Use the **Send Files to TV** app from the app store and send the APK from your computer.
 
-#### USB Storage
+### USB Storage
 
 Copy the APK to a USB storage device, connect it to the Fire TV Stick, and use a file manager from the app store to install it.
 
